@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string.h>
 #include <fstream>
+#include <sstream>
 using namespace std;
 
 class Memory {
@@ -18,7 +19,6 @@ public:
 private:
     int memory[2000];
     void readFile(string filename);
-    void loadInstructions(char filetext[]);
 };
 
 #endif //OSCONCEPTSP1_MEMORY_H

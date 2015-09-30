@@ -9,10 +9,12 @@ void Memory::Memory(string filepath) {
     readFile(filepath);
 }
 
+//cpu read from memory
 int Memory::read(int address) {
     return memory[address];
 }
 
+//cpu write to memory
 void Memory::write(int address, int value) {
     memory[address] = value;
     return;
@@ -20,21 +22,25 @@ void Memory::write(int address, int value) {
 
 //reads file from path and places in character array
 void Memory::readFile(string filepath) {
+    int index = 0;
     ifstream filestream;
     filestream.open(filepath);
-    char output[300];
-    while (!filestream.eof()) {
-        filestream >> output;
+    if (filestream.is_open()) {
+        string output;
+        while (getline(filestream, output)) {
+            int x;
+            if (output[0] == '.') {
+                output.erase(0, 1);
+                stringstream ss(output);
+                if(ss >> x)
+                    index = x;
+            } else {
+                stringstream ss(output);
+                if(ss >> x)
+                    memory[index++] = x;
+            }
+        }
+        filestream.close();
     }
-    filestream.close();
-    loadInstructions(output);
 }
 
-//parses file text and loads instructions 
-void Memory::loadInstructions(char filetext[]) {
-    char* pch;
-    pch = strtok(filetext, "\n");
-    while (pch != NULL) {
-        pch =
-    }
-}
