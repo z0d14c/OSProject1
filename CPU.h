@@ -12,7 +12,7 @@ class CPU {
 public:
     CPU(void);
 private:
-    int x, y;
+    int PC, SP, IR, AC, X, Y;
 };
 
 
