@@ -3,8 +3,9 @@
 //
 
 #include "Memory.h"
+#include <typeinfo>
 
-void Memory::Memory(string filepath) {
+Memory::Memory(string filepath) {
     cout << "reading file into memory" << endl;
     readFile(filepath);
 }
@@ -35,12 +36,31 @@ void Memory::readFile(string filepath) {
                 if(ss >> x)
                     index = x;
             } else {
+                output = grabValue(output);
                 stringstream ss(output);
-                if(ss >> x)
+                if(ss >> x) {
                     memory[index++] = x;
+                }
             }
         }
         filestream.close();
     }
+}
+
+
+//grab numbers in string, not comment or whitespace
+string Memory::grabValue(string line){
+    int strBegin = line.find_first_not_of(" ");
+    string strVal = "";
+    for(int i = strBegin; i < line.length(); i++){
+        if(isdigit(line[i])){
+            strVal += line[i];
+        } else {
+            break;
+        }
+    }
+    //debug cout if needed
+//    cout<<"strVal is "<<strVal<<endl;
+    return strVal;
 }
 

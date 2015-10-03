@@ -9,16 +9,20 @@
 #include <string.h>
 #include <fstream>
 #include <sstream>
+#include <cstdlib>
 using namespace std;
 
 class Memory {
 public:
-    void Memory(string filepath);
+    Memory(string filepath);
     void write(int address, int value);
     int read(int value);
 private:
     int memory[2000];
+    int userStack = 999;
+    int systemStack = 1999;
     void readFile(string filename);
+    string grabValue(string line);
 };
 
 #endif //OSCONCEPTSP1_MEMORY_H
