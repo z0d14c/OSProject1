@@ -12,7 +12,9 @@ CPU::CPU(int timeCounter) {
 }
 
 /* cycle functions */
-//return value [0] = where to look, value[1] whether to increment PC, value[2] whether to read again with operand (3 means store)
+//return value [0] = where to look,
+// value[1] whether to increment PC,
+// value[2] whether to read again with operand (3 means store)
 //value[3] added operand (for instructions that use SP, X, Y, etc)
 int* CPU::toFetch(int code, int* intPtr){
     if(code == 1){
@@ -45,6 +47,11 @@ int* CPU::toFetch(int code, int* intPtr){
         intPtr[1] = 0;
         intPtr[2] = 0;
         intPtr[3] = 0;
+    } else if( code == 7) {
+        intPtr[0] = PC + 1;
+        intPtr[1] = 1;
+        intPtr[2] = 3;
+        intPtr[3] = AC;
     } else if (code == -1) { //regular read
         intPtr[0] = PC;
         intPtr[1] = 0;
@@ -57,7 +64,6 @@ int* CPU::toFetch(int code, int* intPtr){
         intPtr[3] = 0;
     }
         return intPtr;
-
 }
 
 void CPU::setParam(int parameter){
