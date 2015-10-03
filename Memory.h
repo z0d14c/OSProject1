@@ -19,8 +19,6 @@ public:
     int read(int value);
 private:
     int memory[2000];
-    int userStack = 999;
-    int systemStack = 1999;
     void readFile(string filename);
     string grabValue(string line);
 };

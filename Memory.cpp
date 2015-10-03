@@ -6,6 +6,8 @@
 #include <typeinfo>
 
 Memory::Memory(string filepath) {
+    int userStack = 999;
+    int systemStack = 1999;
     cout << "reading file into memory" << endl;
     readFile(filepath);
 }

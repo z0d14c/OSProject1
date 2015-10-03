@@ -9,6 +9,7 @@ CPU::CPU(int timeCounter) {
     srand(time(NULL));
     PC = 0;
     SP = 999;
+    isRunning = true;
 }
 
 /* cycle functions */

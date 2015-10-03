@@ -36,7 +36,7 @@ private:
     //program counter, stack pointer, instruction register, accumulator, regs x and y
     int PC, SP, IR, AC, X, Y;
     int param;
-    bool isRunning = true;
+    bool isRunning;
     int timeCounter;
 
     void LoadValue(); //1
