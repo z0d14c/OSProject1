@@ -16,8 +16,8 @@ using namespace std;
 // interrupt
 
 int main(int argc, char *argv[]) {
-    //args file and timer
-    pid_t pID = fork();
+    //args file and timer/
+    ///    pid_t pID = fork();
     Memory memory = Memory(argv[1]);
     CPU cpu = CPU(atoi(argv[2]));
     int nextAddr, valueFromMemory;

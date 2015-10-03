@@ -6,7 +6,7 @@
 
 CPU::CPU(int timeCounter) {
     //Timer  = timer(timeCounter);
-    srand(time(NULL));
+    srand(1234);
     PC = 0;
     SP = 999;
     isRunning = true;
